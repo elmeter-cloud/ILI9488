@@ -97,7 +97,7 @@ void ILI9488::spiwrite(uint8_t c) {
     SPI.transfer(c);
 #endif
   } else {
-#if defined(ESP8266) || defined (ARDUINO_ARCH_ARC32)
+#if defined(ESP8266) || defined (ARDUINO_ARCH_ARC32) || defined(ESP32)
     for(uint8_t bit = 0x80; bit; bit >>= 1) {
       if(c & bit) {
 	digitalWrite(_mosi, HIGH);
